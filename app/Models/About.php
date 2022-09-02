@@ -21,7 +21,9 @@ class About extends Model
         'headingsix',
         'headingseven',
         'contentfour',
-        'image'
+        'image',
+        'bg_one',
+        'bg_two'
 
     ];
 

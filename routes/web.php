@@ -15,6 +15,11 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\FooterController;
+use Illuminate\Support\Facades\Mail;
 Route::get('/', function () {
 return view('welcome');
 });
@@ -43,6 +48,16 @@ return view('admin.dashboard');
 });
 Route::get('/header',[HeaderController::class,'edit'])->name('header');
 Route::post('/header',[HeaderController::class,'update'])->name('update');
+
+
+// cms foor footer
+Route::get('/footer',[FooterController::class,'edit'])->name('footer');
+Route::post('/footer',[FooterController::class,'update'])->name('Footerupdate');
+
+
+
+
+
 //  update for home
 Route::get('/index',[IndexController::class,'index'])->name('homeAdd');
 Route::post('index',[IndexController::class,'update'])->name('homeUpdate');
@@ -83,4 +98,15 @@ Route::post('admin/product/index',[ProductController::class,'update'])->name('pr
 
 Route::resource('team', TeamController::class);
 Route::get('teamList',[TeamController::class,"showList"])->name('teamList');
+
+Route::post("/message",[MessageController::class,"create"])->name('message.post');
+Route::post("/newsletter",[NewsletterController::class,"create"])->name('news.letter');
+
+// for conatc
+
+Route::get('/contact',[ContactController::class,'edit'])->name('contact.edit');
+Route::post('/contact',[ContactController::class,'update'])->name('contact.update');
+
 });
+
+

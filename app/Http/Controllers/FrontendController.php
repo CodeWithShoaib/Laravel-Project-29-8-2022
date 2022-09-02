@@ -15,6 +15,7 @@ use App\Models\Portfolio;
 use App\Models\Product;
 use App\Models\Items;
 use App\Models\Blog;
+use App\Models\Contact;
 
 
 
@@ -45,7 +46,8 @@ class FrontendController extends Controller
         return view('Frontend.blog',["blog"=>$Blog]);
     }
     public function contact(){
-        return view('Frontend.contact');
+        $contact=Contact::find(1);
+        return view('Frontend.contact',["contact"=>$contact]);
     }
     public function portfolio(){
         $Portfolio=Portfolio::find(1);

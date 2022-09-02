@@ -58,12 +58,31 @@
                 </div>
 
             </div>
-            <div class="col-12">
+
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                  <label>Background Image:-</label>
+                  <input type="file" class="form-control contenttwo" name="bg_one">
+                </div>
+
+            </div>
+            <div class="col-6">
+              <img src="{{ asset('upload/service/'.$service->bg_one) }}" alt="image" style="width: 200px; height:200px">
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col-6">
                 <div class="form-group">
                   <label>Image:-</label>
                   <input type="file" class="form-control contenttwo" name="image">
                 </div>
 
+            </div>
+            <div class="col-6">
+              <img src="{{ asset('upload/service/'.$service->image) }}" alt="image" style="width: 200px; height:200px">
             </div>
         </div>
 

@@ -108,7 +108,8 @@
 
         <!-- Banner Section -->
         <section class="page-banner">
-            <div class="image-layer" style="background-image:url(images/background/image-7.jpg);"></div>
+            {{-- @dd($about->bg_one) --}}
+            <div class="image-layer" style="background-image: url({{ asset('upload/About/'.$about->bg_one) }});"></div>
             <div class="shape-1"></div>
             <div class="shape-2"></div>
             <div class="banner-inner">
@@ -240,8 +241,8 @@
 
         <!-- Parallax Section -->
         <section class="parallax-section jarallax" data-jarallax data-speed="0.3" data-imgPosition="50% 80%">
-            <!-- <div class="image-layer" style="background-image: url(images/background/image-2.jpg);"></div> -->
-            <img src="images/background/image-2.jpg" alt="" class="jarallax-img">
+             <div class="image-layer" style="background-image: url({{ asset('upload/About/'.$about->bg_two) }});"></div>
+            <img src="{{ asset('upload/About/'.$item->about) }}" alt="" class="jarallax-img">
             <div class="auto-container">
                 <div class="content-box">
                     <div class="icon-box"><span class="flaticon-app-development"></span></div>

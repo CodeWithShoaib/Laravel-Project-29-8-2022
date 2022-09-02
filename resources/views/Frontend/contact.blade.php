@@ -99,7 +99,7 @@
                 <div class="cursor-follower"></div>
             </div><!-- /.search-popup__overlay -->
             <div class="search-popup__inner">
-                <form action="#" class="search-popup__form">
+                <form action="#" class="search-popup__form" method="post" enctype="multipart/form-data">
                     <input type="text" name="search" placeholder="Type here to Search....">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
@@ -108,13 +108,18 @@
 
         <!-- Banner Section -->
         <section class="page-banner">
-            <div class="image-layer" style="background-image:url(images/background/image-7.jpg);"></div>
+            {{-- @dd($contact->image) --}}
+            {{-- @dd(asset('upload/image/'.$contact->image))q --}}
+            <div class="image-layer" style="background-image: url({{ asset('upload/image/contact/'.$contact->image) }});"></div>
             <div class="shape-1"></div>
             <div class="shape-2"></div>
             <div class="banner-inner">
                 <div class="auto-container">
                     <div class="inner-container clearfix">
-                        <h1>Contact</h1>
+                        <h1>
+                            {!! $contact->title !!}
+
+                        </h1>
                         <div class="page-nav">
                             <ul class="bread-crumb clearfix">
                                 <li><a href="index-main.html">Home</a></li>
@@ -131,7 +136,10 @@
         <section class="contact-section">
             <div class="auto-container">
                 <div class="sec-title centered">
-                    <h2>Offices near you<span class="dot">.</span></h2>
+                    <h2>
+                        {!! $contact->office_heading !!}
+
+                        <span class="dot">.</span></h2>
                 </div>
 
                 <div class="upper-info">
@@ -202,39 +210,43 @@
                 </div>
                 <div class="form-box">
                     <div class="sec-title">
-                        <h2>Write Us a Message<span class="dot">.</span></h2>
+                        <h2>
+                            {!! $contact->message_heading !!}
+                            <span class="dot">.</span></h2>
                     </div>
                     <div class="default-form">
-                        <form method="post" action="sendemail.php" id="contact-form">
+                        <form method="post" action="{{ route('admin.message.post') }}" id="contact-form" method="post" enctype="multipart/form-data">
+                           @csrf
                             <div class="row clearfix">
+
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
-                                        <input type="text" name="username" value="" placeholder="Your Name" required="">
+                                        <input type="text" name="name"  placeholder="Your Name">
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
                                         <input type="email" name="email" value="" placeholder="Email Address"
-                                            required="">
+                                            >
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
-                                        <input type="text" name="phone" value="" placeholder="Phone Number" required="">
+                                        <input type="text" name="number" value="" placeholder="Phone Number" >
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
-                                        <input type="text" name="subject" value="" placeholder="Subject" required="">
+                                        <input type="text" name="subject" value="" placeholder="Subject" >
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <div class="field-inner">
-                                        <textarea name="message" placeholder="Write Message" required=""></textarea>
+                                        <textarea name="message" placeholder="Write Message" ></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <button class="theme-btn btn-style-one">
+                                    <button class="theme-btn btn-style-one" type="submit">
                                         <i class="btn-curve"></i>
                                         <span class="btn-title">Send message</span>
                                     </button>

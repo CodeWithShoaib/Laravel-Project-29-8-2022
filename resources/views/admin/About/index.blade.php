@@ -138,8 +138,25 @@
 
       <div class="form-group">
         <label>Image</label>
-        <input type="file" class="form-control text_three" name="image" value="{{ $About->image }}">
+        <input type="file" class="form-control text_three" name="image">
         <img src="{{ asset('upload/About/'.$About->image) }}" alt="image" style="width: 200px; height:200px;">
+      </div>
+
+
+
+      <div class="form-group">
+        <label>First Background Image</label>
+        <input type="file" class="form-control text_three" name="bg_one">
+        {{-- @dd($About->bg_one) --}}
+        <img src="{{ asset('upload/About/'.$About->bg_one) }}" alt="image" style="width: 200px; height:200px;">
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Second Background Image</label>
+        <input type="file" class="form-control text_three" name="bg_two">
+        <img src="{{ asset('upload/About/'.$About->bg_two) }}" alt="image" style="width: 200px; height:200px;">
       </div>
       <input type="submit" value="Update" class="btn btn-primary my-2" id="update_data">
     </form>

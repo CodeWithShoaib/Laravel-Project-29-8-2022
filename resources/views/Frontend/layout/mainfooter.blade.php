@@ -9,15 +9,16 @@
                     <div class="footer-widget logo-widget">
                         <div class="widget-content">
                             <div class="logo">
-                                <a href="index.html"><img id="fLogo" src="images/footer-logo.png" alt="" /></a>
+                                <a href="index.html"><img id="fLogo" src="{{ asset('upload/logo/footer/'.$footerData->logo) }}" alt="" /></a>
                             </div>
-                            <div class="text">Welcome to our web design agency. Lorem ipsum simply free text
-                                dolor sited amet cons cing elit.</div>
+                            <div class="text">
+                                {!! $footerData->content !!}
+                            </div>
                             <ul class="social-links clearfix">
-                                <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="{!! $footerData->Flink !!}"><span class="fab fa-facebook-square"></span></a></li>
+                                <li><a href="{!! $footerData->Tlink !!}"><span class="fab fa-twitter"></span></a></li>
                                 <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                <li><a href="{!! $footerData->Plink !!}"><span class="fab fa-pinterest-p"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,19 +32,20 @@
                             <div class="row clearfix">
                                 <div class="col-md-6 col-sm-12">
                                     <ul>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Meet Our Team</a></li>
-                                        <li><a href="#">Our Portfolio</a></li>
-                                        <li><a href="#">Latest News</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="#">{!! $footerData->pagelinkone !!}</a></li>
+                                        {{-- pagelinkone --}}
+                                        <li><a href="#">{!! $footerData->pagelinktwo !!}</a></li>
+                                        <li><a href="#">{!! $footerData->pagelinkthree !!}</a></li>
+                                        <li><a href="#">{!! $footerData->pagelinkfour !!}</a></li>
+                                        <li><a href="#">{!! $footerData->pagelinkfive !!}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <ul>
-                                        <li><a href="#">Support</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">{!! $footerData->support !!}</a></li>
+                                        <li><a href="#">{{ $footerData->termsofuse }}</a></li>
+                                        <li><a href="#">{{ $footerData->privacypolicy }}</a></li>
+                                        <li><a href="#">{{ $footerData->help }}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -57,12 +59,15 @@
                         <div class="widget-content">
                             <h6>Contact</h6>
                             <ul class="contact-info">
-                                <li class="address"><span class="icon flaticon-pin-1"></span> 66 Broklyn Street,
-                                    New York <br>United States of America</li>
-                                <li><span class="icon flaticon-call"></span><a href="tel:666888000">666 888
-                                        000</a></li>
+                                <li class="address">
+                                   {!! $footerData->address !!}
+                                </li>
+                                <li><span class="icon flaticon-call"></span><a href="tel:666888000">
+                                    {!! $footerData->phone !!}
+
+                                </a></li>
                                 <li><span class="icon flaticon-email-2"></span><a
-                                        href="mailto:needhelp@linoor.com">needhelp@linoor.com</a></li>
+                                        href="mailto:needhelp@linoor.com">{!! $footerData->email !!}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,19 +77,21 @@
                 <div class="column col-xl-3 col-lg-6 col-md-6 col-sm-12">
                     <div class="footer-widget newsletter-widget">
                         <div class="widget-content">
-                            <h6>Newsletter</h6>
+                            <h6>Subscribe</h6>
                             <div class="newsletter-form">
-                                <form method="post" action="contact.html">
+                                <form method="post" action="{{ route('admin.news.letter') }}" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-group clearfix">
-                                        <input type="email" name="email" value="" placeholder="Email Address"
-                                            required="">
+                                        <input type="email" name="newsletter"  placeholder="Email Address"
+                                            required>
                                         <button type="submit" class="theme-btn"><span
                                                 class="fa fa-envelope"></span></button>
                                     </div>
                                 </form>
                             </div>
-                            <div class="text">Sign up for our latest news & articles. We won’t give you spam
-                                mails.</div>
+                            <div class="text">
+                                {!! $footerData->signup !!}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +105,10 @@
     <div class="footer-bottom">
         <div class="auto-container">
             <div class="inner clearfix">
-                <div class="copyright">&copy; Copyright 2022 by Layerdrops.com</div>
+                <div class="copyright">
+                    {!! $footerData->copyright !!}
+
+                </div>
             </div>
         </div>
     </div>

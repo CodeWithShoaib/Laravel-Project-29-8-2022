@@ -18,6 +18,11 @@
                      About
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
+                <a class="nav-link collapsed" href="{{ route('admin.contact.edit') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                     Contact
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
                 <a class="nav-link collapsed" href="{{ route('admin.C_Feedback.index') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                      Customer Testimonial
@@ -56,6 +61,16 @@
                 <a class="nav-link collapsed" href="{{ url('admin/blogs') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                      Blog
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <a class="nav-link collapsed" href="{{ Route('admin.header') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                     Header
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <a class="nav-link collapsed" href="{{ Route('admin.footer') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                     Footer
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
 

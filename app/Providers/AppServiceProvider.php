@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Header;
+use App\Models\Footer;
 use App\Models\Showcase;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,9 +28,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $Header=Header::find(1);
+        $Footer=Footer::find(1);
         $Showcase=Showcase::all();
         view::share("header",$Header);
         view::share("showcase",$Showcase);
+        view::share("footerData",$Footer);
+
 
     }
 }

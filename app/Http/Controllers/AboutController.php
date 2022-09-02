@@ -25,6 +25,21 @@ class AboutController extends Controller
             $file->move('upload/About/',$filename);
             $data['image']=$filename;
         }
+        if($request->hasFile('bg_one')){
+
+            $file=$request->file('bg_one');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('upload/About/',$filename);
+            $data['bg_one']=$filename;
+        }
+        if($request->hasFile('bg_two')){
+            $file=$request->file('bg_two');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('upload/About/',$filename);
+            $data['bg_two']=$filename;
+        }
 
 
         $result=$About->fill($data)->save();

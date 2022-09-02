@@ -25,6 +25,13 @@ class ServiceController extends Controller
             $file->move('upload/service/',$filename);
             $data['image']=$filename;
         }
+        if($request->hasFile('bg_one')){
+            $file=$request->file('bg_one');
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('upload/service/',$filename);
+            $data['bg_one']=$filename;
+        }
 
 
         $result=$service->fill($data)->save();

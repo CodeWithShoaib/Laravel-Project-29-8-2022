@@ -13,7 +13,8 @@
                 <!-- Slide Item -->
                 <div class="slide-item">
                     {{-- bg-one --}}
-                    <div class="image-layer" style="background-image: url(images/main-slider/2.jpg);"></div>
+                    {{-- upload/background/ --}}
+                    <div class="image-layer" style="background-image: url({{ asset('upload/background/'.$index->bg_one) }});"></div>
                     <div class="shape-1"></div>
                     <div class="shape-2"></div>
                     <div class="shape-3"></div>
@@ -43,7 +44,8 @@
                 <!-- Slide Item -->
                 <div class="slide-item">
                     {{-- bg_two --}}
-                    <div class="image-layer" style="background-image: url(images/main-slider/1.jpg);"></div>
+                    {{-- upload/background/ --}}
+                    <div class="image-layer" style="background-image: url({{ asset('upload/background/'.$index->bg_two) }});"></div>
                     <div class="shape-1"></div>
                     <div class="shape-2"></div>
                     <div class="shape-3"></div>
@@ -71,7 +73,9 @@
                 <!-- Slide Item -->
                 <div class="slide-item">
                     {{-- bg_three --}}
-                    <div class="image-layer" style="background-image: url(images/main-slider/2.jpg);"></div>
+                    {{-- bg_three --}}
+                    <div class="image-layer" style="background-image: url({{ asset('upload/background/'.$index->bg_three) }});"></div>
+
                     <div class="shape-1"></div>
                     <div class="shape-2"></div>
                     <div class="shape-3"></div>
@@ -1391,7 +1395,7 @@
         <section class="features-section jarallax" data-jarallax data-speed="0.3" data-imgPosition="50% -100%">
 {{-- bg_four--}}
 
-             <div class="image-layer" style="background-image: url(images/background/image-3.jpg);"></div>
+             <div class="image-layer" style="background-image: url({{ asset('upload/background/'.$index->bg_four) }});"></div>
 
             <img src="images/background/image-.jpg" class="jarallax-img" alt="">
             <div class="auto-container">
@@ -1625,7 +1629,7 @@
                     <div class="column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner">
                             {{-- bg_five --}}
-                            <div class="image-layer" style="background-image: url(images/background/image-4.jpg);">
+                            <div class="image-layer" style="background-image: url({{ asset('upload/background/'.$index->bg_five) }});">
                             </div>
                             <div class="content-box">
                                 {{-- headingnineteen --}}
@@ -1644,7 +1648,7 @@
                     <div class="column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner">
                             {{-- bg_six --}}
-                            <div class="image-layer" style="background-image: url(images/background/image-5.jpg);">
+                            <div class="image-layer" style="background-image: url({{ asset('upload/background/'.$index->bg_six) }});">
                             </div>
                             <div class="content-box">
                                 {{-- heafingTwenty --}}

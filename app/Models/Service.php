@@ -22,5 +22,6 @@ class Service extends Model
         "thirdQuility",
         "FourthQuility",
         "headingfour",
+        "bg_one"
     ];
 }
