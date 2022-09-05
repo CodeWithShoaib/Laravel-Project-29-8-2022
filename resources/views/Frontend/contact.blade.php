@@ -1,5 +1,6 @@
 @extends('Frontend.layout.master')
 @section('main_content')
+@include('Frontend.layout.notification')
 
     <div class="page-wrapper">
 
@@ -122,7 +123,7 @@
                         </h1>
                         <div class="page-nav">
                             <ul class="bread-crumb clearfix">
-                                <li><a href="index-main.html">Home</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
                                 <li class="active">Contact</li>
                             </ul>
                         </div>

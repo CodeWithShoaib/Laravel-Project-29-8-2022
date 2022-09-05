@@ -63,6 +63,11 @@
                      Blog
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
+                <a class="nav-link collapsed" href="{{ route('admin.subscription') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                     Subscription List
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
                 <a class="nav-link collapsed" href="{{ Route('admin.header') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                      Header

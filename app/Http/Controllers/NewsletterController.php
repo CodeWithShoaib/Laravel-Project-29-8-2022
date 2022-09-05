@@ -9,13 +9,26 @@ class NewsletterController extends Controller
 {
     public function create(Request $request){
         $data=$request->all();
-        // dd($data);
         $newsL=new Newsletter;
         $result=$newsL->create($data);
         if($result){
-            return redirect()->back()->with("success","Thank You For Sunscription!");
+            return redirect()->back()->with("success","Thank You For Subscription!");
         }
 
 
     }
+
+
+
+    public function index(){
+        $Newsletter=Newsletter::all();
+        return view('admin.subscription.index')->with('newsletter',$Newsletter);
+    }
+    public function delete($id){
+        $data=Newsletter::find($id)->delete();
+        return redirect()->back()->with("success","You Delete message successfully");
+
+    }
+
+
 }

@@ -133,4 +133,12 @@ class BlogController extends Controller
 
 
     }
+    // public function search(Request $request){
+    //     $search=$request->all();
+    //     $blogs =    ->where('name', 'LIKE', "%{$searchTerm}%")
+    //     ->orWhere('email', 'LIKE', "%{$searchTerm}%")
+    //     ->get();
+    //     dd($blogs);
+
+    // }
 }

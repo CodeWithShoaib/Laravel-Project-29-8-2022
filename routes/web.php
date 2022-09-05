@@ -19,10 +19,9 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Mail;
-Route::get('/', function () {
-return view('welcome');
-});
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get("/master",function (){
@@ -31,7 +30,7 @@ return view('admin.dashboard');
 Route::get('index',function(){
 return view('Frontend.index');
 });
-Route::get('home',[FrontendController::class,'home'])->name('home');
+Route::get('/',[FrontendController::class,'home'])->name('home');
 Route::get('about',[FrontendController::class,'about'])->name('about');
 Route::get('blog',[FrontendController::class,'blog'])->name('blog');
 Route::get('contact',[FrontendController::class,'contact'])->name('contact');
@@ -45,7 +44,7 @@ Route::get('header',[FrontendController::class,'header'])->name('header');
 Route::prefix("/admin")->name('admin.')->group(function(){
 Route::get("/master",function (){
 return view('admin.dashboard');
-});
+})->name('dashboard');
 Route::get('/header',[HeaderController::class,'edit'])->name('header');
 Route::post('/header',[HeaderController::class,'update'])->name('update');
 
@@ -53,10 +52,6 @@ Route::post('/header',[HeaderController::class,'update'])->name('update');
 // cms foor footer
 Route::get('/footer',[FooterController::class,'edit'])->name('footer');
 Route::post('/footer',[FooterController::class,'update'])->name('Footerupdate');
-
-
-
-
 
 //  update for home
 Route::get('/index',[IndexController::class,'index'])->name('homeAdd');
@@ -73,6 +68,7 @@ Route::get('newsList',[NewsController::class,"showList"])->name('newsList');
 
 Route::resource('blogs', BlogController::class);
 Route::get('blogsList',[BlogController::class,"showList"])->name('blogsList');
+// Route::post('/blogsearch',[BlogController::class,"search"])->name('blog.search');
 
 Route::resource('showcase', ShowcaseController::class);
 Route::get('showcaseList',[ShowcaseController::class,"showList"])->name('showcaseList');
@@ -93,19 +89,22 @@ Route::get('itemsList',[ItemsController::class,"showList"])->name('itemsList');
 Route::get('admin/product/index',[ProductController::class,'index'])->name('product');
 Route::post('admin/product/index',[ProductController::class,'update'])->name('productUpdate');
 
-
-
-
 Route::resource('team', TeamController::class);
 Route::get('teamList',[TeamController::class,"showList"])->name('teamList');
 
 Route::post("/message",[MessageController::class,"create"])->name('message.post');
 Route::post("/newsletter",[NewsletterController::class,"create"])->name('news.letter');
 
+Route::get('/subscription',[NewsletterController::class,'index'])->name('subscription');
+Route::get('/subscription/delete/{id}',[NewsletterController::class,'delete'])->name('subscription.delete');
+
 // for conatc
 
 Route::get('/contact',[ContactController::class,'edit'])->name('contact.edit');
 Route::post('/contact',[ContactController::class,'update'])->name('contact.update');
+
+Route::post('.login/successfull',[LoginController::class,'show'])->name('homepage');
+
 
 });
 

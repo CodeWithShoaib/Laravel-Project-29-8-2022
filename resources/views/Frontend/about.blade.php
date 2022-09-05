@@ -122,7 +122,7 @@
                         </h1>
                         <div class="page-nav">
                             <ul class="bread-crumb clearfix">
-                                <li><a href="index-main.html">Home</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
                                 <li class="active">About</li>
                             </ul>
                         </div>

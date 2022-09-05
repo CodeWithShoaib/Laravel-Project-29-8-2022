@@ -4,8 +4,6 @@
 
 
         <!-- /.search-popup -->
-
-
         <!-- Banner Section -->
         <section class="banner-section banner-two">
 

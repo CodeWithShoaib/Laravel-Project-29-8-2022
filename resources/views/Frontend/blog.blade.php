@@ -1,8 +1,9 @@
 
+
 @extends('Frontend.layout.master')
 @section('main_content')
 
-
+@include('Frontend.layout.notification')
 
     <div class="page-wrapper">
 
@@ -73,7 +74,7 @@
                         <h1>Blog Posts</h1>
                         <div class="page-nav">
                             <ul class="bread-crumb clearfix">
-                                <li><a href="index-main.html">Home</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
                                 <li class="active">Blog Posts</li>
                             </ul>
                         </div>
@@ -137,9 +138,10 @@
                             <!--Sidebar Widget-->
                             <div class="sidebar-widget search-box">
                                 <div class="widget-inner">
-                                    <form method="post" action="blog.html">
+                                    <form method="post" action="">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="search" name="search-field" value="" placeholder="Search"
+                                            <input type="search" name="search-field"  placeholder="Search"
                                                 required="">
                                             <button type="submit"><span
                                                     class="icon flaticon-magnifying-glass-1"></span></button>
@@ -153,14 +155,16 @@
                                     <div class="sidebar-title">
                                         <h4>Latest Posts</h4>
                                     </div>
-
+                                    @foreach ($blog as $item)
                                     <div class="post">
-                                        <figure class="post-thumb"><img src="images/resource/news-thumb-1.jpg" alt="">
+                                        <figure class="post-thumb"><img src="{{ asset('upload/blog/'.$item->image) }}" alt="image">
                                         </figure>
-                                        <h5 class="text"><a href="#">EXPERIENCES THAT CONNECT WITH PEOPLE</a></h5>
+                                        <h5 class="text"><a href="#">
+                                            {!! substr($item->content,0,20) !!}
+                                            </a></h5>
                                     </div>
-
-                                    <div class="post">
+                                    @endforeach
+                                    {{-- <div class="post">
                                         <figure class="post-thumb"><img src="images/resource/news-thumb-2.jpg" alt="">
                                         </figure>
                                         <h5 class="text"><a href="#">WE BUILD AND ACTIVATE BRANDS INSIGHT</a></h5>
@@ -170,7 +174,7 @@
                                         <figure class="post-thumb"><img src="images/resource/news-thumb-3.jpg" alt="">
                                         </figure>
                                         <h5 class="text"><a href="#">A DEEP UNDERSTANDING OF OUR AUDIENCE</a></h5>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
